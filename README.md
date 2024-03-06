@@ -1,4 +1,6 @@
-### 🛠 My Stacks
+- 👨‍💻  Software Engineering Student at UNICESUMAR
+
+### 🛠 My Skills
 ![My Skills](https://skillicons.dev/icons?i=js,css,html,c,mongodb,mysql)
 
 ![My Skills](https://skillicons.dev/icons?i=vscode,idea,figma,postman)
