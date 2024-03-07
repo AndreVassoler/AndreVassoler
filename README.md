@@ -34,7 +34,7 @@
   />
 </picture>
 
-### 📩 Contact me
+### 📩 Contact 
  <p align='left'>
    <a href="https://www.linkedin.com/in/andr%C3%A9-fragalli/" target="_blank"><img height="25" src="https://raw.githubusercontent.com/UjwalKandi/UjwalKandi/changes-to-readme/svg/linkedin%20rect.svg"></a>&nbsp;&nbsp;
    <a href="https://www.instagram.com/fragalliandre/" target="_blank"><img height="25" src="https://raw.githubusercontent.com/UjwalKandi/UjwalKandi/changes-to-readme/svg/insta%20rect.svg"></a>&nbsp;&nbsp;
