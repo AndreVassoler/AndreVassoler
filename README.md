@@ -127,7 +127,31 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 
 ---
 
-## 🐍 Contribuições
+## 🍄 Meu Histórico de Contribuições (Estilo Mario)
+
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg"
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg"
+  />
+  <img
+    alt="Banner de contribuições no estilo Super Mario"
+    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg"
+  />
+</picture>
+
+> Gerado diariamente pelo workflow [`update-mario.yml`](.github/workflows/update-mario.yml).
+> Cada bloco é um dia do seu gráfico de contribuições: blocos `?` e tijolos são dias de muitos commits,
+> moedas são dias medianos, e **Goombas/Koopas** aparecem nos dias parados. O Mario corre e pula pela fase. 🍄⭐
+
+<details>
+<summary>🐍 Versão Snake (alternativa)</summary>
+
+<br />
 
 <picture>
   <source
@@ -143,6 +167,8 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
     src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg"
   />
 </picture>
+
+</details>
 
 ---
 
