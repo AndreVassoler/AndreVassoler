@@ -132,15 +132,15 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg?v=1"
   />
   <source
     media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=1"
   />
   <img
     alt="Banner de contribuições no estilo Super Mario"
-    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg"
+    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=1"
   />
 </picture>
 
@@ -156,15 +156,15 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake-dark.svg"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake-dark.svg?v=1"
   />
   <source
     media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg?v=1"
   />
   <img
     alt="GitHub contribution snake"
-    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg"
+    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg?v=1"
   />
 </picture>
 
