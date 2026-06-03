@@ -41,6 +41,40 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 </details>
 
 <details>
+<summary><b>Wise Park</b> — plataforma de gerenciamento de estacionamentos</summary>
+
+<br />
+
+| Camada | Tecnologia |
+|--------|------------|
+| **Backend** | NestJS 11 · TypeScript 5.7 · TypeORM · PostgreSQL 16 · Passport (JWT + Local) · bcryptjs · class-validator · class-transformer |
+| **Cache** | Redis (`cache-manager-redis-yet`) |
+| **Mensageria** | RabbitMQ (`amqplib`, `@nestjs/microservices`) |
+| **Tempo real** | Socket.IO (`@nestjs/websockets`) |
+| **Arquivos** | MinIO ou AWS S3 (`STORAGE_DRIVER`) |
+| **E-mail** | Nodemailer + Handlebars |
+| **Relatórios** | Puppeteer + Chromium |
+| **Documentação** | Swagger (`@nestjs/swagger`) |
+| **Agendamento** | `@nestjs/schedule` |
+| **Rate limit** | `@nestjs/throttler` |
+| **Logs** | Winston (`nest-winston`) |
+| **Testes** | Jest (unit, integration, e2e) + Testcontainers |
+| **Frontend** | React 18 · TypeScript 5.8 |
+| **UI** | MUI 7 · Emotion |
+| **Roteamento** | React Router DOM 6 |
+| **Estado / API** | React Query v3 · Axios |
+| **Formulários** | react-hook-form · Yup |
+| **Permissões** | `@brainhubeu/react-permissible` |
+| **Tempo real (cliente)** | socket.io-client |
+| **Gráficos** | Recharts |
+| **Outros** | react-webcam · react-imask · lodash · react-toastify |
+| **Landing Page** | React 19 · TypeScript · Chakra UI 2 · MUI 7 · Framer Motion · Lucide React |
+| **Integrações** | EmailJS · Google Analytics |
+| **Deploy** | Docker · Nginx · Railway |
+
+</details>
+
+<details>
 <summary><b>Loja na Pista</b> — Wake Commerce (Storefront 2.0)</summary>
 
 <br />
