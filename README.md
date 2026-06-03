@@ -21,17 +21,6 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 
 ---
 
-### 📊 GitHub
-
-<div>
-  <a href="https://github.com/AndreVassoler">
-    <img height="165em" src="https://github-readme-stats.vercel.app/api?username=AndreVassoler&hide=stars&count_private=true&theme=dracula&show_icons=true" />
-    <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreVassoler&theme=dracula&layout=compact&count_private=true&langs_count=10" />
-  </a>
-</div>
-
----
-
 ### 🚀 Projetos & stacks
 
 <details open>
