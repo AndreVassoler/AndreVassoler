@@ -121,8 +121,6 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
   />
 </picture>
 
-![Pacman](https://raw.githubusercontent.com/seuusuario/seuusuario/output/pacman-contribution-graph.svg)
-
 ---
 
 ### 📩 Contato
