@@ -429,7 +429,11 @@ function imageFrames(frames: Sprite[], prefix: string, rendering = "pixelated"):
 // Construcao do SVG
 // ---------------------------------------------------------------------------
 
-function buildSVG(grid: Grid, theme: Theme, sprites: { koopa: Sprite[]; marioRun: Sprite[]; marioJump: Sprite | null; marioFall: Sprite | null }): string {
+function buildSVG(
+  grid: Grid,
+  theme: Theme,
+  sprites: { koopa: Sprite[]; koopaShell: Sprite[]; marioRun: Sprite[]; marioJump: Sprite | null; marioFall: Sprite | null },
+): string {
   const cols = grid.weeks.length;
   const gridW = cols * PITCH;
   const gridH = ROWS * PITCH;
@@ -534,12 +538,17 @@ function buildSVG(grid: Grid, theme: Theme, sprites: { koopa: Sprite[]; marioRun
   const stompY = koopaH;
   const stompFractions = koopaXs.map((xc) => (xc - marioW / 2 - marioStartX) / runSpan);
 
-  // Koopas: <g posiciona> > <use .koopaStompN amassa> > frames
+  // Koopas: caminhada (2 frames) -> ao ser pisado, entra no casco (3 frames)
+  const hasShell = sprites.koopaShell.length > 0;
   const koopas = hasKoopa
     ? koopaXs
         .map((xc, i) => {
           const x = xc - koopaW / 2;
-          return `<g transform="translate(${round(x)},${round(koopaTopY)}) scale(${round(koopaScale)})"><g class="koopaStomp${i + 1}" style="transform-box:fill-box;transform-origin:bottom center"><g class="koopaFlap">${imageFrames(sprites.koopa, "ko")}</g></g></g>`;
+          const walk = `<g class="koopaWalkLayer"><g class="koopaFlap">${imageFrames(sprites.koopa, "ko")}</g></g>`;
+          const shell = hasShell
+            ? `<g class="koopaShellLayer"><g class="koopaShellCycle">${imageFrames(sprites.koopaShell, "ks")}</g></g>`
+            : "";
+          return `<g transform="translate(${round(x)},${round(koopaTopY)}) scale(${round(koopaScale)})"><g class="koopaStomp${i + 1}">${walk}${shell}</g></g>`;
         })
         .join("")
     : "";
@@ -550,7 +559,8 @@ function buildSVG(grid: Grid, theme: Theme, sprites: { koopa: Sprite[]; marioRun
     const run = imageFrames(sprites.marioRun, "mr", "auto");
     const mk = (s: Sprite | null, cls: string): string =>
       s ? `<image class="${cls}" href="${s.href}" x="0" y="0" width="${s.w}" height="${s.h}" style="image-rendering:auto"/>` : "";
-    marioInner = `<g transform="translate(0,${round(marioBaseY)}) scale(${round(marioScale)})"><g class="marioRunCycle">${run}</g>${mk(sprites.marioJump, "marioJumpFrame")}${mk(sprites.marioFall, "marioFallFrame")}</g>`;
+    // scaleX negativo: Mario original vem virado pra esquerda; corrida e da esquerda pra direita.
+    marioInner = `<g transform="translate(0,${round(marioBaseY)}) scale(${round(-marioScale)},${round(marioScale)}) translate(${round(-marioRef.w)},0)"><g class="marioRunCycle">${run}</g>${mk(sprites.marioJump, "marioJumpFrame")}${mk(sprites.marioFall, "marioFallFrame")}</g>`;
   } else {
     // Placeholder vetorial (ate chegarem os prints do Mario)
     const pScale = marioTargetH / spriteSize(MARIO_FRAME_A).h;
@@ -578,6 +588,7 @@ function buildSVG(grid: Grid, theme: Theme, sprites: { koopa: Sprite[]; marioRun
     stomp: stompY,
     fractions: stompFractions,
     koopaFrames: sprites.koopa.length,
+    koopaShellFrames: sprites.koopaShell.length,
     marioFrames: sprites.marioRun.length,
     hasJump: !!sprites.marioJump,
     hasFall: !!sprites.marioFall,
@@ -611,9 +622,35 @@ interface CssOpts {
   stomp: number;
   fractions: number[];
   koopaFrames: number;
+  koopaShellFrames: number;
   marioFrames: number;
   hasJump: boolean;
   hasFall: boolean;
+}
+
+/** Opacity steps para N frames do casco durante cada pisao (entra na casa). */
+function shellEnterCSS(prefix: string, n: number, fractions: number[], sw: number): string {
+  if (n <= 0) return "";
+  const rules: string[] = [];
+  for (let fi = 0; fi < n; fi++) {
+    const parts = ["0% { opacity: 0; }"];
+    for (const f of fractions) {
+      const a = f - sw;
+      const b = f + sw;
+      const span = b - a;
+      const seg = span / n;
+      const winA = a + fi * seg;
+      const winMid = fi === n - 1 ? b : a + (fi + 1) * seg;
+      if (winMid > winA) {
+        parts.push(`${pct(winA)}% { opacity: 0; }`, `${round(pct(winA) + 0.001)}% { opacity: 1; }`, `${pct(winMid)}% { opacity: 1; }`);
+        if (fi < n - 1) parts.push(`${round(pct(winMid) + 0.001)}% { opacity: 0; }`);
+        else parts.push(`${round(pct(b) + 0.001)}% { opacity: 0; }`);
+      }
+    }
+    parts.push("100% { opacity: 0; }");
+    rules.push(`.${prefix}${fi} { opacity: 0; animation: ${prefix}Enter${fi} ${RUN_DURATION}s steps(1,end) infinite; }`, `@keyframes ${prefix}Enter${fi} { ${parts.join(" ")} }`);
+  }
+  return rules.join("\n    ");
 }
 
 function buildCSS(opts: CssOpts): string {
@@ -636,25 +673,16 @@ function buildCSS(opts: CssOpts): string {
     .join(" ");
 
   const sw = 0.016;
-  const squish = (f: number): string =>
-    ([
-      [0, 1],
-      [f - sw, 1],
-      [f, 0.55],
-      [f + sw, 1],
-      [1, 1],
-    ] as Array<[number, number]>)
-      .filter(([x]) => x >= 0 && x <= 1)
-      .sort((a, b) => a[0] - b[0])
-      .map(([x, s]) => `${round(x * 100)}% { transform: scaleY(${s}); }`)
-      .join(" ");
-  const squishRules = fractions
-    .map(
-      (f, i) =>
-        `.koopaStomp${i + 1} { animation: koopaStomp${i + 1} ${RUN_DURATION}s linear infinite; }
-    @keyframes koopaStomp${i + 1} { ${squish(f)} }`,
-    )
-    .join("\n    ");
+  const stompWins = fractions.map((f) => [f - sw, f + sw] as [number, number]);
+  const koopaWalkHide = opts.koopaShellFrames > 0
+    ? `.koopaWalkLayer { animation: koopaWalkHide ${RUN_DURATION}s steps(1,end) infinite; }
+    @keyframes koopaWalkHide { ${offTrack(stompWins)} }`
+    : "";
+  const koopaShellShow = opts.koopaShellFrames > 0
+    ? `.koopaShellLayer { opacity: 0; animation: koopaShellShow ${RUN_DURATION}s steps(1,end) infinite; }
+    @keyframes koopaShellShow { ${onTrack(stompWins)} }
+    ${shellEnterCSS("ks", opts.koopaShellFrames, fractions, sw)}`
+    : "";
 
   // Troca de pose: corre (chao) -> sobe (Jump) -> desce/pisa (Fall).
   // O apice fica em f - 0.55*jw (igual ao arco de jumpFrames).
@@ -691,7 +719,8 @@ function buildCSS(opts: CssOpts): string {
     @keyframes runX { from { transform: translateX(${round(startX)}px); } to { transform: translateX(${round(endX)}px); } }
     @keyframes jumpY { ${jumpFrames} }
 
-    ${squishRules}
+    ${koopaWalkHide}
+    ${koopaShellShow}
     ${jumpToggle}
     ${koopaFlapCSS}
     ${marioRunCSS}
@@ -721,7 +750,7 @@ function buildCSS(opts: CssOpts): string {
 
     @media (prefers-reduced-motion: reduce) {
       #mario, #mario .jump, .legA, .legB, .coin, .qbob, .spark, .cloud, .flag,
-      .koopaFlap, .koopaStomp1, .koopaStomp2, .kof, .mrf, .marioRunCycle, .marioJumpFrame, .marioFallFrame { animation: none; }
+      .koopaFlap, .koopaWalkLayer, .koopaShellLayer, .koopaStomp1, .koopaStomp2, .kof, .ksf, .mrf, .marioRunCycle, .marioJumpFrame, .marioFallFrame { animation: none; }
       .legB { opacity: 0; }
     }
   `;
@@ -819,11 +848,12 @@ async function main(): Promise<void> {
 
   // Carrega sprites reais (PNG). Mario e opcional (plugavel).
   const koopa = loadFrames("koopa");
+  const koopaShell = loadFrames("koopa_shell");
   const marioRun = loadFrames("mario_run");
   const marioJump = loadPng("assets/sprites/mario_jump.png");
   const marioFall = loadPng("assets/sprites/mario_fall.png");
   console.log(
-    `[mario] sprites: koopa=${koopa.length}, marioRun=${marioRun.length}, marioJump=${marioJump ? "sim" : "nao"}, marioFall=${marioFall ? "sim" : "nao"}` +
+    `[mario] sprites: koopa=${koopa.length}, koopaShell=${koopaShell.length}, marioRun=${marioRun.length}, marioJump=${marioJump ? "sim" : "nao"}, marioFall=${marioFall ? "sim" : "nao"}` +
       (marioRun.length === 0 ? " (usando Mario placeholder vetorial)" : ""),
   );
 
@@ -843,7 +873,7 @@ async function main(): Promise<void> {
   }
 
   for (const out of outputs) {
-    const svg = buildSVG(grid, out.theme, { koopa, marioRun, marioJump, marioFall });
+    const svg = buildSVG(grid, out.theme, { koopa, koopaShell, marioRun, marioJump, marioFall });
     mkdirSync(dirname(out.file), { recursive: true });
     writeFileSync(out.file, svg, "utf8");
     console.log(`[mario] SVG gerado: ${out.file} (${(svg.length / 1024).toFixed(1)} KB)`);

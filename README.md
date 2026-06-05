@@ -9,15 +9,15 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg?v=4"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg?v=6"
   />
   <source
     media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=4"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=6"
   />
   <img
     alt="Banner de contribuições no estilo Super Mario"
-    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=4"
+    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=6"
   />
 </picture>
 
