@@ -4,28 +4,6 @@
 
 Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em React, lojas na **Wake Commerce** (Storefront 2.0 + Scriban) e sites em **Next.js** com Supabase, deploy em **Railway** e **Vercel**.
 
-## 🍄 Meu Histórico de Contribuições (Estilo Mario)
-
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg?v=6"
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=6"
-  />
-  <img
-    alt="Banner de contribuições no estilo Super Mario"
-    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=6"
-  />
-</picture>
-
-> Gerado diariamente pelo workflow [`update-mario.yml`](.github/workflows/update-mario.yml).
-> Cada bloco é um dia do seu gráfico de contribuições: blocos `?` e tijolos são dias de muitos commits,
-> moedas são dias medianos, e **Goombas/Koopas** aparecem nos dias parados. O Mario corre e pula pela fase. 🍄⭐
-
-
 ---
 
 ### 🛠 Stack no dia a dia
@@ -149,27 +127,22 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 
 ---
 
-<details>
-<summary>🐍 Versão Snake (alternativa)</summary>
-
-<br />
+## 🐍 Contribuições
 
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake-dark.svg?v=1"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake-dark.svg"
   />
   <source
     media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg?v=1"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg"
   />
   <img
     alt="GitHub contribution snake"
-    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg?v=1"
+    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/github-contribution-grid-snake.svg"
   />
 </picture>
-
-</details>
 
 ---
 
