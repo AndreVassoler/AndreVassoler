@@ -2,3 +2,9 @@ node_modules/
 dist-tsc/
 *.log
 .DS_Store
+
+# artefatos de desenvolvimento (recorte/validacao)
+.playwright-mcp/
+assets/work/
+assets/raw/
+/mario_*.png

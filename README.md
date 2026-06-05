@@ -4,6 +4,28 @@
 
 Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em React, lojas na **Wake Commerce** (Storefront 2.0 + Scriban) e sites em **Next.js** com Supabase, deploy em **Railway** e **Vercel**.
 
+## 🍄 Meu Histórico de Contribuições (Estilo Mario)
+
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg?v=4"
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=4"
+  />
+  <img
+    alt="Banner de contribuições no estilo Super Mario"
+    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=4"
+  />
+</picture>
+
+> Gerado diariamente pelo workflow [`update-mario.yml`](.github/workflows/update-mario.yml).
+> Cada bloco é um dia do seu gráfico de contribuições: blocos `?` e tijolos são dias de muitos commits,
+> moedas são dias medianos, e **Goombas/Koopas** aparecem nos dias parados. O Mario corre e pula pela fase. 🍄⭐
+
+
 ---
 
 ### 🛠 Stack no dia a dia
@@ -126,27 +148,6 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 </details>
 
 ---
-
-## 🍄 Meu Histórico de Contribuições (Estilo Mario)
-
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution-dark.svg?v=1"
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=1"
-  />
-  <img
-    alt="Banner de contribuições no estilo Super Mario"
-    src="https://raw.githubusercontent.com/AndreVassoler/AndreVassoler/output/mario-contribution.svg?v=1"
-  />
-</picture>
-
-> Gerado diariamente pelo workflow [`update-mario.yml`](.github/workflows/update-mario.yml).
-> Cada bloco é um dia do seu gráfico de contribuições: blocos `?` e tijolos são dias de muitos commits,
-> moedas são dias medianos, e **Goombas/Koopas** aparecem nos dias parados. O Mario corre e pula pela fase. 🍄⭐
 
 <details>
 <summary>🐍 Versão Snake (alternativa)</summary>
