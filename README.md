@@ -28,7 +28,7 @@ Desenvolvedor **full stack** e **e-commerce**: APIs com NestJS, painéis em Reac
 
 <br />
 
-| | **Backend** · [Gestor_Funilaria_Backend](https://github.com/AndreVassoler/Gestor_Funilaria_Backend) | **Frontend** · [Gestor_Funilaria_FrontEnd](https://github.com/AndreVassoler/Gestor_Funilaria_FrontEnd) |
+| | **Backend** | **Frontend** |
 |---|------|--------|
 | **Runtime / build** | Node.js ≥ 22 | Vite 8 + `@vitejs/plugin-react` |
 | **Framework** | NestJS 11 (Express) | React 19 + React DOM |
